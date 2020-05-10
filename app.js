@@ -1,14 +1,14 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const SPACESHIP_SIZE = { width: 20, height: 30 };
+const SPACESHIP_SIZE = { width: 40, height: 60 };
 const SPACESHIP_POSITION = { x: 200, y: 200 };
-const GRAVITY = 0;
+
 const THRUST = 5;
 
 class Spaceship {
     constructor(size, position){
-        this.color = '#FFF';
+        this.color = 'blue';
         this.size = size;
         this.position = position;
         this.angle = 0;
@@ -67,9 +67,6 @@ class Spaceship {
             this.velocity.x += (THRUST / 100) * Math.sin(this.angle);
             this.velocity.y -= (THRUST / 100) * Math.cos(this.angle);
         }
-
-        this.velocity.y += GRAVITY / 100;
-
     }
 }
 
@@ -93,5 +90,4 @@ function draw(){
 
 document.addEventListener('keydown', handleKeyInput);
 document.addEventListener('keyup', handleKeyInput);
-
 draw();
